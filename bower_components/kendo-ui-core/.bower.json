@@ -1,0 +1,14 @@
+{
+  "name": "kendo-ui-core",
+  "homepage": "https://github.com/telerik/kendo-ui-core",
+  "version": "2014.3.1316",
+  "_release": "2014.3.1316",
+  "_resolution": {
+    "type": "version",
+    "tag": "2014.3.1316",
+    "commit": "08c8ac79d5383910ca12b0ac45f5c3bbb30a0786"
+  },
+  "_source": "git://github.com/telerik/kendo-ui-core.git",
+  "_target": "~2014.3.1119",
+  "_originalSource": "telerik/kendo-ui-core"
+}
