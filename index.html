@@ -10,5 +10,12 @@
     Search contacts
     <input kendo-auto-compltete="search" data-k-options="autocompleteOptions">
   </p>
+  <ol class="contact-list">
+    <li class="row" data-ng-repeat="contact in contacts | filter:filter | nameFilter:letterFilter | orderBy:'first_name'" style="background-color: {{color.background_colour}};">
+      <form>
+        
+      </form>
+    </li>
+  </ol>
 </body>
 </html>
