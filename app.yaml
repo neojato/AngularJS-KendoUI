@@ -1,0 +1,11 @@
+application: angularjs-kendoui
+version: 1
+runtime: php
+api_version: 1
+
+handlers:
+- url: /scripts
+  static_dir: scripts
+  
+- url: /.*
+  script: index.html
