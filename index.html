@@ -40,7 +40,10 @@
                 </div>
                 <div class="row">
                     <label for="phone-{{index}}">Phone:</label>
-                    <input kendo-masked-text-box id="phone-{{index}}" data-ng-model="contact.phone" k-mask="'00000 00000'" />
+                    <input kendo-masked-text-box
+                           id="phone-{{index}}"
+                           data-ng-model="contact.phone"
+                           data-k-mask="'00000 00000'" />
                 </div>
                 <div class="row">
                     <label for="street-{{index}}">Street:</label>
@@ -53,6 +56,13 @@
                 <div class="row">
                     <label for="county-{{index}}">County:</label>
                     <input id="county-{{index}}" data-ng-model="contact.address.county" />
+                </div>
+                <div class="row">
+                    <label for="postcode-{{index}}">Postcode:</label>
+                    <input kendo-masked-text-box
+                           id="postcode-{{index}}"
+                           data-ng-model="contact.address.postcode"
+                           data-k-mask="'LL09 0LL'" />
                 </div>
             </form>
         </li>
