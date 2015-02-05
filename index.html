@@ -14,8 +14,6 @@
 
     <script src="bower_components/kendo-ui-core/src/kendo.core.js"></script>
     <script src="bower_components/kendo-ui-core/src/kendo.angular.js"></script>
-    <script src="bower_components/kendo-ui-core/src/kendo.fx.js"></script>
-    <script src="bower_components/kendo-ui-core/src/kendo.data.js"></script>
 
     <script src="app.js"></script>
 </head>
@@ -29,7 +27,14 @@
             data-ng-repeat="contact in contacts | filter:filter | nameFilter:letterFilter | orderBy:'first_name'"
             style="background-color: {{color.background_colour}};">
             <form>
-
+                <div class="row">
+                    <label for="firstname-{{index}}">First name:</label>
+                    <input id="firstname-{{index}}" data-ng-model="contact.first_name" />
+                </div>
+                <div class="row">
+                    <label for="lastname-{{index}}">Last name:</label>
+                    <input id="lastname-{{index}}" data-ng-model="contact.last_name" />
+                </div>
             </form>
         </li>
     </ol>
