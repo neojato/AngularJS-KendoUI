@@ -42,6 +42,18 @@
                     <label for="phone-{{index}}">Phone:</label>
                     <input kendo-masked-text-box id="phone-{{index}}" data-ng-model="contact.phone" k-mask="'00000 00000'" />
                 </div>
+                <div class="row">
+                    <label for="street-{{index}}">Street:</label>
+                    <input id="street-{{index}}" data-ng-model="contact.address.street" />
+                </div>
+                <div class="row">
+                    <label for="town-{{index}}">Town:</label>
+                    <input id="town-{{index}}" data-ng-model="contact.address.town" />
+                </div>
+                <div class="row">
+                    <label for="county-{{index}}">County:</label>
+                    <input id="county-{{index}}" data-ng-model="contact.address.county" />
+                </div>
             </form>
         </li>
     </ol>
