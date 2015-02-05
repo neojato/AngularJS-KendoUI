@@ -14,6 +14,9 @@
 
     <script src="bower_components/kendo-ui-core/src/kendo.core.js"></script>
     <script src="bower_components/kendo-ui-core/src/kendo.angular.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.fx.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.data.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.maskedtextbox.js"></script>
 
     <script src="app.js"></script>
 </head>
@@ -34,6 +37,10 @@
                 <div class="row">
                     <label for="lastname-{{index}}">Last name:</label>
                     <input id="lastname-{{index}}" data-ng-model="contact.last_name" />
+                </div>
+                <div class="row">
+                    <label for="phone-{{index}}">Phone:</label>
+                    <input kendo-masked-text-box id="phone-{{index}}" data-ng-model="contact.phone" k-mask="'00000 00000'" />
                 </div>
             </form>
         </li>
