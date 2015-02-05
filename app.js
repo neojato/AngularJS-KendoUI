@@ -29,4 +29,16 @@
             }
         };
     }]);
+
+    app.filter('nameFilter', function () {
+        return function (contacts, letter) {
+            if (contacts && letter) {
+                return contacts.filter(function (item) {
+                    return item.first_name[0] === letter;
+                });
+            } else {
+                return contacts;
+            }
+        };
+    });
 })();
