@@ -29,6 +29,9 @@
     <script src="bower_components/kendo-ui-core/src/kendo.list.js"></script>
     <script src="bower_components/kendo-ui-core/src/kendo.multiselect.js"></script>
 
+    <!-- autocomplete -->
+    <script src="bower_components/kendo-ui-core/src/kendo.autocomplete.js"></script>
+
     <script src="app.js"></script>
 </head>
 <body ng-app="address-book" ng-controller="ListCtrl">
@@ -83,6 +86,16 @@
                     <div class="row">
                         <label for="tags-{{index}}">Tags:</label>
                         <select kendo-multi-select id="tags-{{index}}" class="tags" data-k-options="tagOptions"></select>
+                    </div>
+                </div>
+                <div class="inner right-side cf">
+                    <div class="row">
+                        <label for="email-{{index}}">Email:</label>
+                        <input id="email-{{index}}" data-ng-model="contact.email" />
+                    </div>
+                    <div class="row">
+                        <label for="website-{{index}}">Website:</label>
+                        <input id="website-{{index}}" data-ng-model="contact.website" />
                     </div>
                 </div>
             </form>
