@@ -7,6 +7,14 @@
     app.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.letters = [];
 
+        var createBackgroundColour = function (colour) {
+            var c = kendo.parseColor(colour);
+            return 'rgba({r}, {g}, {b}, 0.1)'
+                .replace('{r}', c.r)
+                .replace('{g}', c.g)
+                .replace('{b}', c.b);
+        };
+
         $http.get('contacts.json').success(function (response) {
             $scope.contacts = angular.forEach(response, function (contact) {
                 // add unique letters to alphabet array
