@@ -1,0 +1,86 @@
+body {
+    padding: 0 1em;
+}
+
+[data-ng-click] {
+    cursor: pointer;
+}
+
+.cf:before,
+.row:before {
+    display: table;
+    content: " ";
+}
+
+.cf:after,
+.row:after {
+    clear: both;
+}
+
+.contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-list > li {
+    display: flex;
+    padding: 1em;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.contact-list > li:last-child {
+    border-bottom: 0;
+}
+
+.contact-list > li:nth-child(odd) {
+    background-color: #eee;
+}
+
+.contact-list .inner .row {
+    margin: 0.5em;
+}
+
+.view-wrapper {
+    height: 80vh;
+}
+
+.letter-list {
+    list-style: none;
+    padding: 0;
+    margin: 1em 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.125em;
+}
+
+.letter-list li {
+    margin: 0.5em 0;
+}
+
+.tags {
+    width: 300px;
+}
+
+.left-side,
+.right-side {
+    float: left;
+    width: 50%;
+}
+
+input {
+    border-radius: 6px;
+    height: 2.13em;
+    text-indent: .33em;
+    border: 1px solid #c1c1c1;
+}
+
+input[type=email],
+input[type=url] {
+    width: 15em;
+}
+
+label {
+    display: inline-block;
+    width: 5.5em;
+}
