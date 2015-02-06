@@ -23,6 +23,10 @@
     <script src="bower_components/kendo-ui-core/src/kendo.popup.js"></script>
     <script src="bower_components/kendo-ui-core/src/kendo.datepicker.js"></script>
 
+    <!-- multiselect -->
+    <script src="bower_components/kendo-ui-core/src/kendo.list.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.multiselect.js"></script>
+
     <script src="app.js"></script>
 </head>
 <body ng-app="address-book" ng-controller="ListCtrl">
@@ -72,6 +76,10 @@
                 <div class="row">
                     <label for="dob-{{$index}}">Birthday:</label>
                     <kendo-datepicker id="dob-{{$index}}" data-ng-model="contact.dob" data-k-options="dateOptions"></kendo-datepicker>
+                </div>
+                <div class="row">
+                    <label for="tags-{{index}}">Tags:</label>
+                    <select kendo-multi-select id="tags-{{index}}" class="tags" data-k-options="tagOptions"></select>
                 </div>
             </form>
         </li>

@@ -22,6 +22,10 @@
             $scope.letters.sort();
         });
 
+        $scope.tagOptions = {
+            dataSource: ['Friend', 'Colleague', 'Acquaintance', 'Best friend', 'Enemy', 'Random', 'School friend', 'Family', 'Me']
+        };
+
         $scope.autocompleteOptions = {
             dataTextField: 'name',
             change: function () {
