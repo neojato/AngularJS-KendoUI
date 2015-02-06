@@ -17,18 +17,12 @@
 
         $http.get('contacts.json').success(function (response) {
             $scope.contacts = angular.forEach(response, function (contact) {
-                // add unique letters to alphabet array
-                if ($scope.letters.indexOf(contact.first_name[0]) === -1) {
-                    $scope.letters.push(contact.first_name[0]);
-                }
                 contact.dob = kendo.toString(new Date(contact.dob), 'MM/dd/yyyy');
                 contact.name = contact.first_name + ' ' + contact.last_name;
                 contact.background_colour = createBackgroundColour(contact.colour);
 
                 return contact;
             });
-
-            $scope.letters.sort();
         });
 
         $scope.tagOptions = {

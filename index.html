@@ -36,6 +36,7 @@
     <script src="bower_components/kendo-ui-core/src/kendo.userevents.js"></script>
     <script src="bower_components/kendo-ui-core/src/kendo.draganddrop.js"></script>
     <script src="bower_components/kendo-ui-core/src/kendo.resizable.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.splitter.js"></script>
 
     <!-- colour picker -->
     <script src="bower_components/kendo-ui-core/src/kendo.slider.js"></script>
@@ -49,83 +50,93 @@
     <p>Search contacts
         <input kendo-auto-compltete="search" data-k-options="autocompleteOptions">
     </p>
-    <ol class="contact-list">
-        <li class="row"
-            data-ng-repeat="contact in contacts | filter:filter | nameFilter:letterFilter | orderBy:'first_name'"
-            style="background-color: {{contact.background_colour}};">
-            <form>
-                <div class="inner left-side cf">
-                    <div class="row">
-                        <label for="firstname-{{index}}">First name:</label>
-                        <input id="firstname-{{index}}" data-ng-model="contact.first_name" />
+
+    <div kendo-splitter class="view-wrapper" k-options="splitterOptions">
+        <div>
+            <ol class="letter-list">
+                <li data-ng-repeat="letter in letters">
+                    <a data-ng-click="setFilter(letter)">{{letter}}</a>
+                </li>
+            </ol>
+        </div>
+        <ol class="contact-list">
+            <li class="row"
+                data-ng-repeat="contact in contacts | filter:filter | nameFilter:letterFilter | orderBy:'first_name'"
+                style="background-color: {{contact.background_colour}};">
+                <form>
+                    <div class="inner left-side cf">
+                        <div class="row">
+                            <label for="firstname-{{index}}">First name:</label>
+                            <input id="firstname-{{index}}" data-ng-model="contact.first_name" />
+                        </div>
+                        <div class="row">
+                            <label for="lastname-{{index}}">Last name:</label>
+                            <input id="lastname-{{index}}" data-ng-model="contact.last_name" />
+                        </div>
+                        <div class="row">
+                            <label for="phone-{{index}}">Phone:</label>
+                            <input kendo-masked-text-box
+                                   id="phone-{{index}}"
+                                   data-ng-model="contact.phone"
+                                   data-k-mask="'00000 00000'" />
+                        </div>
+                        <div class="row">
+                            <label for="street-{{index}}">Street:</label>
+                            <input id="street-{{index}}" data-ng-model="contact.address.street" />
+                        </div>
+                        <div class="row">
+                            <label for="town-{{index}}">Town:</label>
+                            <input id="town-{{index}}" data-ng-model="contact.address.town" />
+                        </div>
+                        <div class="row">
+                            <label for="county-{{index}}">County:</label>
+                            <input id="county-{{index}}" data-ng-model="contact.address.county" />
+                        </div>
+                        <div class="row">
+                            <label for="postcode-{{index}}">Postcode:</label>
+                            <input kendo-masked-text-box
+                                   id="postcode-{{index}}"
+                                   data-ng-model="contact.address.postcode"
+                                   data-k-mask="'LL09 0LL'" />
+                        </div>
+                        <div class="row">
+                            <label for="dob-{{$index}}">Birthday:</label>
+                            <kendo-datepicker id="dob-{{$index}}" data-ng-model="contact.dob" data-k-options="dateOptions"></kendo-datepicker>
+                        </div>
+                        <div class="row">
+                            <label for="tags-{{index}}">Tags:</label>
+                            <select kendo-multi-select id="tags-{{index}}" class="tags" data-k-options="tagOptions"></select>
+                        </div>
                     </div>
-                    <div class="row">
-                        <label for="lastname-{{index}}">Last name:</label>
-                        <input id="lastname-{{index}}" data-ng-model="contact.last_name" />
+                    <div class="inner right-side cf">
+                        <div class="row">
+                            <label for="email-{{$index}}">Email:</label>
+                            <input type="email" id="email-{{$index}}" data-ng-model="contact.email">
+                        </div>
+                        <div class="row">
+                            <label for="website-{{$index}}">Website:</label>
+                            <input id="website-{{$index}}" type="url" data-ng-model="contact.url">
+                        </div>
+                        <div class="row">
+                            <label for="twitter-{{$index}}">Twitter:</label>
+                            <input id="twitter-{{$index}}" kendo-masked-text-box data-ng-model="contact.twitter" data-k-options="twitterOptions">
+                        </div>
+                        <div class="row">
+                            <label for="facebook-{{$index}}">Facebook:</label>
+                            <input id="facebook-{{$index}}" data-ng-model="contact.facebook">
+                        </div>
+                        <div class="row">
+                            <label for="linkedin-{{$index}}">LinkedIn:</label>
+                            <input id="linkedin-{{$index}}" data-ng-model="contact.linkedin">
+                        </div>
+                        <div class="row">
+                            <label for="colour-{{$index}}"></label>
+                            <input kendo-color-picker id="colour-{{index}}" ng-model="contact.colour" k-options="colourOptions">
+                        </div>
                     </div>
-                    <div class="row">
-                        <label for="phone-{{index}}">Phone:</label>
-                        <input kendo-masked-text-box
-                               id="phone-{{index}}"
-                               data-ng-model="contact.phone"
-                               data-k-mask="'00000 00000'" />
-                    </div>
-                    <div class="row">
-                        <label for="street-{{index}}">Street:</label>
-                        <input id="street-{{index}}" data-ng-model="contact.address.street" />
-                    </div>
-                    <div class="row">
-                        <label for="town-{{index}}">Town:</label>
-                        <input id="town-{{index}}" data-ng-model="contact.address.town" />
-                    </div>
-                    <div class="row">
-                        <label for="county-{{index}}">County:</label>
-                        <input id="county-{{index}}" data-ng-model="contact.address.county" />
-                    </div>
-                    <div class="row">
-                        <label for="postcode-{{index}}">Postcode:</label>
-                        <input kendo-masked-text-box
-                               id="postcode-{{index}}"
-                               data-ng-model="contact.address.postcode"
-                               data-k-mask="'LL09 0LL'" />
-                    </div>
-                    <div class="row">
-                        <label for="dob-{{$index}}">Birthday:</label>
-                        <kendo-datepicker id="dob-{{$index}}" data-ng-model="contact.dob" data-k-options="dateOptions"></kendo-datepicker>
-                    </div>
-                    <div class="row">
-                        <label for="tags-{{index}}">Tags:</label>
-                        <select kendo-multi-select id="tags-{{index}}" class="tags" data-k-options="tagOptions"></select>
-                    </div>
-                </div>
-                <div class="inner right-side cf">
-                    <div class="row">
-                        <label for="email-{{$index}}">Email:</label>
-                        <input type="email" id="email-{{$index}}" data-ng-model="contact.email">
-                    </div>
-                    <div class="row">
-                        <label for="website-{{$index}}">Website:</label>
-                        <input id="website-{{$index}}" type="url" data-ng-model="contact.url">
-                    </div>
-                    <div class="row">
-                        <label for="twitter-{{$index}}">Twitter:</label>
-                        <input id="twitter-{{$index}}" kendo-masked-text-box data-ng-model="contact.twitter" data-k-options="twitterOptions">
-                    </div>
-                    <div class="row">
-                        <label for="facebook-{{$index}}">Facebook:</label>
-                        <input id="facebook-{{$index}}" data-ng-model="contact.facebook">
-                    </div>
-                    <div class="row">
-                        <label for="linkedin-{{$index}}">LinkedIn:</label>
-                        <input id="linkedin-{{$index}}" data-ng-model="contact.linkedin">
-                    </div>
-                    <div class="row">
-                        <label for="colour-{{$index}}"></label>
-                        <input kendo-color-picker id="colour-{{index}}" ng-model="contact.colour" k-options="colourOptions">
-                    </div>
-                </div>
-            </form>
-        </li>
-    </ol>
+                </form>
+            </li>
+        </ol>
+    </div>
 </body>
 </html>
