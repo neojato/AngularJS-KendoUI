@@ -52,7 +52,7 @@
     <ol class="contact-list">
         <li class="row"
             data-ng-repeat="contact in contacts | filter:filter | nameFilter:letterFilter | orderBy:'first_name'"
-            style="background-color: {{color.background_colour}};">
+            style="background-color: {{contact.background_colour}};">
             <form>
                 <div class="inner left-side cf">
                     <div class="row">

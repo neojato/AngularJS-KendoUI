@@ -23,6 +23,7 @@
                 }
                 contact.dob = kendo.toString(new Date(contact.dob), 'MM/dd/yyyy');
                 contact.name = contact.first_name + ' ' + contact.last_name;
+                contact.background_colour = createBackgroundColour(contact.colour);
 
                 return contact;
             });
@@ -49,6 +50,7 @@
         $scope.colourOptions = {
             select: function (e) {
                 this.$angular_scope.contact.colour = e.value;
+                this.$angular_scope.contact.background_colour = createBackgroundColour(e.value);
                 $scope.$apply();
             }
         };
