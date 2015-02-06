@@ -92,8 +92,18 @@
             }
         }
 
+        function executeEvents (context) {
+            ctx = context;
+            fired = true;
+            for (var i = 0, len = events.length; i < len; i++) {
+                var event = events[i];
+                event.callback.bind(context)();
+            }
+        }
+
         return {
-            add: addEvent
+            add: addEvent,
+            execute: executeEvents
         };
     });
 })();
