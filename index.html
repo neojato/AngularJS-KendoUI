@@ -18,6 +18,11 @@
     <script src="bower_components/kendo-ui-core/src/kendo.data.js"></script>
     <script src="bower_components/kendo-ui-core/src/kendo.maskedtextbox.js"></script>
 
+    <!-- datepicker -->
+    <script src="bower_components/kendo-ui-core/src/kendo.calendar.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.popup.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.datepicker.js"></script>
+
     <script src="app.js"></script>
 </head>
 <body ng-app="address-book" ng-controller="ListCtrl">
@@ -63,6 +68,10 @@
                            id="postcode-{{index}}"
                            data-ng-model="contact.address.postcode"
                            data-k-mask="'LL09 0LL'" />
+                </div>
+                <div class="row">
+                    <label for="dob-{{$index}}">Birthday:</label>
+                    <kendo-datepicker id="dob-{{$index}}" data-ng-model="contact.dob" data-k-options="dateOptions"></kendo-datepicker>
                 </div>
             </form>
         </li>
