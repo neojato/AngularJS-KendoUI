@@ -36,6 +36,12 @@
             }
         };
 
+        $scope.splitterOptions = {
+            panes: [{
+                size: "5%"
+            }]
+        };
+
         $scope.twitterOptions = {
             mask: '@&&&&&&&&&&&&&&&',
             promptChar: ' '
@@ -48,6 +54,19 @@
                 $scope.$apply();
             }
         };
+
+        $scope.setFilter = function (letter) {
+            if (letter !== $scope.letterFilter) {
+                $scope.letterFilter = letter;
+            } else {
+                $scope.letterFilter = null;
+            }
+        };
+
+        $scope.$on('kendoRendered', function () {
+            $scope.kendoReady = true;
+            Events.execute($scope);
+        });
     }]);
 
     app.filter('nameFilter', function () {
