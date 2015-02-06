@@ -90,12 +90,16 @@
                 </div>
                 <div class="inner right-side cf">
                     <div class="row">
-                        <label for="email-{{index}}">Email:</label>
-                        <input id="email-{{index}}" data-ng-model="contact.email" />
+                        <label for="email-{{$index}}">Email:</label>
+                        <input type="email" id="email-{{$index}}" data-ng-model="contact.email">
                     </div>
                     <div class="row">
-                        <label for="website-{{index}}">Website:</label>
-                        <input id="website-{{index}}" data-ng-model="contact.website" />
+                        <label for="website-{{$index}}">Website:</label>
+                        <input id="website-{{$index}}" type="url" data-ng-model="contact.url">
+                    </div>
+                    <div class="row">
+                        <label for="twitter-{{$index}}">Twitter:</label>
+                        <input id="twitter-{{$index}}" kendo-masked-text-box data-ng-model="contact.twitter" data-k-options="twitterOptions">
                     </div>
                 </div>
             </form>

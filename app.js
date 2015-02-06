@@ -32,6 +32,11 @@
                 $scope.filter = $scope.search.value();
             }
         };
+
+        $scope.twitterOptions = {
+            mask: '@&&&&&&&&&&&&&&&',
+            promptChar: ' '
+        };
     }]);
 
     app.filter('nameFilter', function () {
