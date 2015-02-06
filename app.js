@@ -37,6 +37,13 @@
             mask: '@&&&&&&&&&&&&&&&',
             promptChar: ' '
         };
+
+        $scope.colourOptions = {
+            select: function (e) {
+                this.$angular_scope.contact.colour = e.value;
+                $scope.$apply();
+            }
+        };
     }]);
 
     app.filter('nameFilter', function () {

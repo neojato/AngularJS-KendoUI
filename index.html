@@ -32,6 +32,16 @@
     <!-- autocomplete -->
     <script src="bower_components/kendo-ui-core/src/kendo.autocomplete.js"></script>
 
+    <!-- splitter -->
+    <script src="bower_components/kendo-ui-core/src/kendo.userevents.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.draganddrop.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.resizable.js"></script>
+
+    <!-- colour picker -->
+    <script src="bower_components/kendo-ui-core/src/kendo.slider.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.color.js"></script>
+    <script src="bower_components/kendo-ui-core/src/kendo.colorpicker.js"></script>
+
     <script src="app.js"></script>
 </head>
 <body ng-app="address-book" ng-controller="ListCtrl">
@@ -108,6 +118,10 @@
                     <div class="row">
                         <label for="linkedin-{{$index}}">LinkedIn:</label>
                         <input id="linkedin-{{$index}}" data-ng-model="contact.linkedin">
+                    </div>
+                    <div class="row">
+                        <label for="colour-{{$index}}"></label>
+                        <input kendo-color-picker id="colour-{{index}}" ng-model="contact.colour" k-options="colourOptions">
                     </div>
                 </div>
             </form>
