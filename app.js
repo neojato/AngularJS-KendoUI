@@ -27,6 +27,14 @@
 
                 return contact;
             });
+
+            $scope.letters.sort();
+
+            Events.add({
+               callback: function () {
+                    $scope.search.setDataSource($scope.contacts);
+               }
+            });
         });
 
         $scope.tagOptions = {
@@ -44,6 +52,10 @@
             panes: [{
                 size: "5%"
             }]
+        };
+
+        $scope.dateOptions = {
+            format: 'MM/dd/yyyy'
         };
 
         $scope.twitterOptions = {
