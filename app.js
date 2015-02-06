@@ -4,7 +4,7 @@
 
     var app = angular.module('address-book', ['kendo.directives']);
 
-    app.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
+    app.controller('ListCtrl', ['$scope', '$http', 'EventQueue', function ($scope, $http, Events) {
         $scope.letters = [];
 
         var createBackgroundColour = function (colour) {
@@ -19,7 +19,6 @@
             $scope.contacts = angular.forEach(response, function (contact) {
                 contact.dob = kendo.toString(new Date(contact.dob), 'MM/dd/yyyy');
                 contact.name = contact.first_name + ' ' + contact.last_name;
-                contact.background_colour = createBackgroundColour(contact.colour);
 
                 return contact;
             });
@@ -78,6 +77,23 @@
             } else {
                 return contacts;
             }
+        };
+    });
+
+    app.service('EventQueue', function () {
+        var events = [],
+            fired = false,
+            ctx;
+
+        function addEvent (event) {
+            events.push(event);
+            if (fired) {
+                executeEvents(ctx);
+            }
+        }
+
+        return {
+            add: addEvent
         };
     });
 })();
